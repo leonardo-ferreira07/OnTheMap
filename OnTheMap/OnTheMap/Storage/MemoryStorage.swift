@@ -15,4 +15,5 @@ class MemoryStorage {
     private init() {}
     
     var session: Session?
+    var user: User?
 }

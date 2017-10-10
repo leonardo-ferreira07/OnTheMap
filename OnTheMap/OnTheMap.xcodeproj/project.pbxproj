@@ -17,6 +17,7 @@
 		A76B888D1F8BCCEA004BFB84 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A76B888B1F8BCCEA004BFB84 /* Main.storyboard */; };
 		A76B888F1F8BCCEA004BFB84 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A76B888E1F8BCCEA004BFB84 /* Assets.xcassets */; };
 		A76B88921F8BCCEA004BFB84 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A76B88901F8BCCEA004BFB84 /* LaunchScreen.storyboard */; };
+		A78A82711F8CF507005DAB72 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78A82701F8CF507005DAB72 /* User.swift */; };
 		A792729E1F8CF22500DA4D6D /* UserClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A792729D1F8CF22500DA4D6D /* UserClient.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +34,7 @@
 		A76B888E1F8BCCEA004BFB84 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A76B88911F8BCCEA004BFB84 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A76B88931F8BCCEA004BFB84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A78A82701F8CF507005DAB72 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A792729D1F8CF22500DA4D6D /* UserClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -78,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				A72E89971F8CE604008B8D87 /* Session.swift */,
+				A78A82701F8CF507005DAB72 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -199,6 +202,7 @@
 				A72E899B1F8CEBA4008B8D87 /* MemoryStorage.swift in Sources */,
 				A76B888A1F8BCCEA004BFB84 /* ViewController.swift in Sources */,
 				A72E89981F8CE604008B8D87 /* Session.swift in Sources */,
+				A78A82711F8CF507005DAB72 /* User.swift in Sources */,
 				A72E89911F8CD64E008B8D87 /* SessionClient.swift in Sources */,
 				A76B88881F8BCCEA004BFB84 /* AppDelegate.swift in Sources */,
 				A72E898E1F8CCF14008B8D87 /* APIClient.swift in Sources */,

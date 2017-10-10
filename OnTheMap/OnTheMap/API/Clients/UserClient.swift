@@ -19,12 +19,10 @@ struct UserClient {
                 return
             }
             
-            completion(true)
-            
-//            if let decoded = try? JSONDecoder().decode(Session.self, from: data) {
-//                MemoryStorage.shared.session = decoded
-//                completion(true)
-//            }
+            if let decoded = try? JSONDecoder().decode(User.self, from: data) {
+                MemoryStorage.shared.user = decoded
+                completion(true)
+            }
         }) {
             
         }

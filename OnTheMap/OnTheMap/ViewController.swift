@@ -18,6 +18,7 @@ class ViewController: UIViewController {
             if success {
                 UserClient.getUserData(withId: MemoryStorage.shared.session?.account.id ?? "", completion: { (success1) in
                     print(success1)
+                    print(MemoryStorage.shared.user?.user.firstName)
                 })
             }
         }
