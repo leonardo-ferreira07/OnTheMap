@@ -23,6 +23,10 @@ class ViewController: UIViewController {
             }
         }
         
+        StudentLocationClient.getStudentsLocations { (success) in
+            print(success)
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {

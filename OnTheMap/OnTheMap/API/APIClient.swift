@@ -23,7 +23,7 @@ class APIClient: NSObject {
         return NSError(domain: "performRequestReturnsData", code: 1, userInfo: userInfo)
     }
     
-    open static func performRequest(_ url: URL, method: URLMethod? = .GET, jsonBody: [String: AnyObject]? = nil, headerValues: [[String]]? = nil, ignore5First: Bool = false, completion: @escaping (_ data: AnyObject?, Error?) -> Void, timeoutAfter timeout: TimeInterval = 0, onTimeout: (()->Void)? = nil) -> URLSessionDataTask? {
+    open static func performRequest(_ url: URL, method: URLMethod? = .GET, jsonBody: [String: AnyObject]? = nil, headerValues: [String: String]? = nil, ignore5First: Bool = false, completion: @escaping (_ data: AnyObject?, Error?) -> Void, timeoutAfter timeout: TimeInterval = 0, onTimeout: (()->Void)? = nil) -> URLSessionDataTask? {
         
         return performRequestReturnsData(url, method: method, jsonBody: jsonBody, headerValues: headerValues, ignore5First: ignore5First, completion: { (data, error) in
             
@@ -41,7 +41,7 @@ class APIClient: NSObject {
         }
     }
     
-    open static func performRequestReturnsData(_ url: URL, method: URLMethod? = .GET, jsonBody: [String: AnyObject]? = nil, headerValues: [[String]]? = nil, ignore5First: Bool = false, completion: @escaping (_ data: Data?, Error?) -> Void, timeoutAfter timeout: TimeInterval = 0, onTimeout: (()->Void)? = nil) -> URLSessionDataTask? {
+    open static func performRequestReturnsData(_ url: URL, method: URLMethod? = .GET, jsonBody: [String: AnyObject]? = nil, headerValues: [String: String]? = nil, ignore5First: Bool = false, completion: @escaping (_ data: Data?, Error?) -> Void, timeoutAfter timeout: TimeInterval = 0, onTimeout: (()->Void)? = nil) -> URLSessionDataTask? {
         
         let urlRequest = NSMutableURLRequest(url: url)
         
@@ -66,8 +66,8 @@ class APIClient: NSObject {
         }
         
         if let headerValues = headerValues {
-            for headerValue in headerValues {
-                urlRequest.addValue(headerValue[0], forHTTPHeaderField: headerValue[1])
+            for (key, headerValue) in headerValues {
+                urlRequest.addValue(headerValue, forHTTPHeaderField: key)
             }
         }
         

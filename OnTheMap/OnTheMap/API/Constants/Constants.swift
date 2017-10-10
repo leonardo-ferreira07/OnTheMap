@@ -10,10 +10,15 @@ import Foundation
 
 struct Constants {
     
-    // MARK: - URLs
+    // MARK: - Scheme
     
     static let apiScheme = "https"
+    
+    // MARK: - Hosts
+    
     static let apiHostUdacity = "udacity.com"
+    
+    static let apiHostParseClasses = "parse.udacity.com"
     
     // MARK: - Session
     
@@ -22,4 +27,8 @@ struct Constants {
     // MARK: - User
     
     static let apiPathUdacityUserData = "api/users"
+    
+    // MARK: - Students location
+    
+    static let apiPathUdacityParseStudentLocations = "parse/classes/StudentLocation"
 }
