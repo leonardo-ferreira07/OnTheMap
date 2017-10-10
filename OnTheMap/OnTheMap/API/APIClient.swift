@@ -93,6 +93,77 @@ class APIClient: NSObject {
         return task
     }
     
+    open static func performRequestReturnsData(_ url: URL, method: URLMethod? = .GET, jsonBody: [String: AnyObject]? = nil, headerValues: [[String]]? = nil, completion: @escaping (_ data: Data?, Error?) -> Void, timeoutAfter timeout: TimeInterval = 0, onTimeout: (()->Void)? = nil) -> URLSessionDataTask? {
+        
+        func sendError(_ error: String) {
+            print(error)
+            let userInfo = [NSLocalizedDescriptionKey: error]
+            completion(nil, NSError(domain: "performRequest", code: 1, userInfo: userInfo))
+        }
+        
+        let urlRequest = NSMutableURLRequest(url: url)
+        
+        if let method = method {
+            urlRequest.httpMethod = method.rawValue
+        }
+        
+        var data: Data?
+        if let jsonBody = jsonBody {
+            do {
+                try data = JSONSerialization.data(withJSONObject: jsonBody, options: .prettyPrinted)
+                urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
+                urlRequest.addValue("application/json", forHTTPHeaderField: "Accept")
+            } catch {
+                NSLog("Error unwraping json object")
+                sendError("Error unwraping json object")
+            }
+        }
+        
+        if let bodyData = data {
+            urlRequest.httpBody = bodyData
+        }
+        
+        if let headerValues = headerValues {
+            for headerValue in headerValues {
+                urlRequest.addValue(headerValue[0], forHTTPHeaderField: headerValue[1])
+            }
+        }
+        
+        if timeout > 0 {
+            urlRequest.timeoutInterval = timeout
+        }
+        
+        let task = URLSession.shared.dataTask(with: urlRequest as URLRequest) { (data, response, error) in
+            
+            guard (error == nil) else {
+                sendError("There was an error with your request: \(error!)")
+                return
+            }
+            
+            guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 else {
+                sendError("Your request returned a status code other than 2xx!")
+                return
+            }
+            
+            guard var data = data else {
+                sendError("No data was returned by the request!")
+                return
+            }
+            
+            if urlRequest.url?.absoluteString.contains("session") ?? false {
+                let range = Range(5..<data.count)
+                data = data.subdata(in: range)
+            }
+            
+            DispatchQueue.main.async(execute: {
+                completion(data, nil)
+            })
+        }
+        task.resume()
+        
+        return task
+    }
+    
 }
 
 // MARK: - URL builder

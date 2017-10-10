@@ -10,6 +10,8 @@
 		A72E898E1F8CCF14008B8D87 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72E898D1F8CCF14008B8D87 /* APIClient.swift */; };
 		A72E89911F8CD64E008B8D87 /* SessionClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72E89901F8CD64E008B8D87 /* SessionClient.swift */; };
 		A72E89931F8CD803008B8D87 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72E89921F8CD803008B8D87 /* Constants.swift */; };
+		A72E89981F8CE604008B8D87 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72E89971F8CE604008B8D87 /* Session.swift */; };
+		A72E899B1F8CEBA4008B8D87 /* MemoryStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72E899A1F8CEBA4008B8D87 /* MemoryStorage.swift */; };
 		A76B88881F8BCCEA004BFB84 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76B88871F8BCCEA004BFB84 /* AppDelegate.swift */; };
 		A76B888A1F8BCCEA004BFB84 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76B88891F8BCCEA004BFB84 /* ViewController.swift */; };
 		A76B888D1F8BCCEA004BFB84 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A76B888B1F8BCCEA004BFB84 /* Main.storyboard */; };
@@ -21,6 +23,8 @@
 		A72E898D1F8CCF14008B8D87 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		A72E89901F8CD64E008B8D87 /* SessionClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionClient.swift; sourceTree = "<group>"; };
 		A72E89921F8CD803008B8D87 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		A72E89971F8CE604008B8D87 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		A72E899A1F8CEBA4008B8D87 /* MemoryStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryStorage.swift; sourceTree = "<group>"; };
 		A76B88841F8BCCEA004BFB84 /* OnTheMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A76B88871F8BCCEA004BFB84 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A76B88891F8BCCEA004BFB84 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -45,8 +49,8 @@
 			isa = PBXGroup;
 			children = (
 				A72E898F1F8CD640008B8D87 /* Clients */,
-				A72E898D1F8CCF14008B8D87 /* APIClient.swift */,
 				A72E89941F8CD80B008B8D87 /* Constants */,
+				A72E898D1F8CCF14008B8D87 /* APIClient.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -65,6 +69,22 @@
 				A72E89921F8CD803008B8D87 /* Constants.swift */,
 			);
 			path = Constants;
+			sourceTree = "<group>";
+		};
+		A72E89961F8CE5D7008B8D87 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A72E89971F8CE604008B8D87 /* Session.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A72E89991F8CEB97008B8D87 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				A72E899A1F8CEBA4008B8D87 /* MemoryStorage.swift */,
+			);
+			path = Storage;
 			sourceTree = "<group>";
 		};
 		A76B887B1F8BCCEA004BFB84 = {
@@ -86,6 +106,8 @@
 		A76B88861F8BCCEA004BFB84 /* OnTheMap */ = {
 			isa = PBXGroup;
 			children = (
+				A72E89991F8CEB97008B8D87 /* Storage */,
+				A72E89961F8CE5D7008B8D87 /* Models */,
 				A72E898C1F8CCF02008B8D87 /* API */,
 				A76B88871F8BCCEA004BFB84 /* AppDelegate.swift */,
 				A76B88891F8BCCEA004BFB84 /* ViewController.swift */,
@@ -170,7 +192,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				A72E89931F8CD803008B8D87 /* Constants.swift in Sources */,
+				A72E899B1F8CEBA4008B8D87 /* MemoryStorage.swift in Sources */,
 				A76B888A1F8BCCEA004BFB84 /* ViewController.swift in Sources */,
+				A72E89981F8CE604008B8D87 /* Session.swift in Sources */,
 				A72E89911F8CD64E008B8D87 /* SessionClient.swift in Sources */,
 				A76B88881F8BCCEA004BFB84 /* AppDelegate.swift in Sources */,
 				A72E898E1F8CCF14008B8D87 /* APIClient.swift in Sources */,

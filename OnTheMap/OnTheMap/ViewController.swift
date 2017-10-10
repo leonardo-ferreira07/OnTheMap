@@ -13,7 +13,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        SessionClient.postSession()
+        SessionClient.postSession { (success) in
+            print(success)
+        }
         
     }
 

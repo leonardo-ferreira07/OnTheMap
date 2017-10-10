@@ -10,12 +10,20 @@ import Foundation
 
 struct SessionClient {
     
-    static func postSession() {
+    static func postSession(_ completion: @escaping (_ success: Bool) -> Void) {
         let url = APIClient.buildURL(withHost: Constants.apiHostUdacity, withPathExtension: Constants.apiPathUdacitySession)
-        let jsonBody = ["udacity": ["username": "**", "password": "***"]] as [String: AnyObject]
+        let jsonBody = ["udacity": ["username": "account@domain.com", "password": "********"]] as [String: AnyObject]
         
-        _ = APIClient.performRequest(url, method: .POST, jsonBody: jsonBody, completion: { (dict, error) in
-            print(dict)
+        _ = APIClient.performRequestReturnsData(url, method: .POST, jsonBody: jsonBody, completion: { (data, error) in
+            guard let data = data else {
+                completion(false)
+                return
+            }
+            
+            if let decoded = try? JSONDecoder().decode(Session.self, from: data) {
+                MemoryStorage.shared.session = decoded
+                completion(true)
+            }
         }) {
             
         }
