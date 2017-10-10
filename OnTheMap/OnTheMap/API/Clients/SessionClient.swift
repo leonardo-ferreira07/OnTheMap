@@ -14,7 +14,7 @@ struct SessionClient {
         let url = APIClient.buildURL(withHost: Constants.apiHostUdacity, withPathExtension: Constants.apiPathUdacitySession)
         let jsonBody = ["udacity": ["username": "account@domain.com", "password": "********"]] as [String: AnyObject]
         
-        _ = APIClient.performRequestReturnsData(url, method: .POST, jsonBody: jsonBody, completion: { (data, error) in
+        _ = APIClient.performRequestReturnsData(url, method: .POST, jsonBody: jsonBody, ignore5First: true, completion: { (data, error) in
             guard let data = data else {
                 completion(false)
                 return

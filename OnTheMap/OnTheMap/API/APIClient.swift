@@ -17,89 +17,31 @@ public enum URLMethod: String {
 
 class APIClient: NSObject {
     
-    open static func performRequest(_ url: URL, method: URLMethod? = .GET, jsonBody: [String: AnyObject]? = nil, headerValues: [[String]]? = nil, completion:@escaping (_ data: AnyObject?, Error?) -> Void, timeoutAfter timeout: TimeInterval = 0, onTimeout: (()->Void)? = nil) -> URLSessionDataTask? {
+    fileprivate static func buildError(_ error: String) -> Error {
+        print(error)
+        let userInfo = [NSLocalizedDescriptionKey: error]
+        return NSError(domain: "performRequestReturnsData", code: 1, userInfo: userInfo)
+    }
+    
+    open static func performRequest(_ url: URL, method: URLMethod? = .GET, jsonBody: [String: AnyObject]? = nil, headerValues: [[String]]? = nil, ignore5First: Bool = false, completion: @escaping (_ data: AnyObject?, Error?) -> Void, timeoutAfter timeout: TimeInterval = 0, onTimeout: (()->Void)? = nil) -> URLSessionDataTask? {
         
-        func sendError(_ error: String) {
-            print(error)
-            let userInfo = [NSLocalizedDescriptionKey: error]
-            completion(nil, NSError(domain: "performRequest", code: 1, userInfo: userInfo))
-        }
-        
-        let urlRequest = NSMutableURLRequest(url: url)
-        
-        if let method = method {
-            urlRequest.httpMethod = method.rawValue
-        }
-        
-        var data: Data?
-        if let jsonBody = jsonBody {
-            do {
-                try data = JSONSerialization.data(withJSONObject: jsonBody, options: .prettyPrinted)
-                urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
-                urlRequest.addValue("application/json", forHTTPHeaderField: "Accept")
-            } catch {
-                NSLog("Error unwraping json object")
-                sendError("Error unwraping json object")
-            }
-        }
-        
-        if let bodyData = data {
-            urlRequest.httpBody = bodyData
-        }
-        
-        if let headerValues = headerValues {
-            for headerValue in headerValues {
-                urlRequest.addValue(headerValue[0], forHTTPHeaderField: headerValue[1])
-            }
-        }
-        
-        if timeout > 0 {
-            urlRequest.timeoutInterval = timeout
-        }
-        
-        let task = URLSession.shared.dataTask(with: urlRequest as URLRequest) { (data, response, error) in
-            
-            guard (error == nil) else {
-                sendError("There was an error with your request: \(error!)")
-                return
-            }
-            
-            guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 else {
-                sendError("Your request returned a status code other than 2xx!")
-                return
-            }
-            
-            guard var data = data else {
-                sendError("No data was returned by the request!")
-                return
-            }
-            
-            if urlRequest.url?.absoluteString.contains("session") ?? false {
-                let range = Range(5..<data.count)
-                data = data.subdata(in: range)
-            }
+        return performRequestReturnsData(url, method: method, jsonBody: jsonBody, headerValues: headerValues, ignore5First: ignore5First, completion: { (data, error) in
             
             guard let jsonObject = jsonObject(data) else {
-                sendError("error parsing Json")
+                completion(nil, buildError("error parsing Json"))
                 return
             }
             
             DispatchQueue.main.async(execute: {
                 completion(jsonObject, nil)
             })
+            
+        }, timeoutAfter: timeout) {
+            
         }
-        task.resume()
-        
-        return task
     }
     
-    open static func performRequestReturnsData(_ url: URL, method: URLMethod? = .GET, jsonBody: [String: AnyObject]? = nil, headerValues: [[String]]? = nil, completion: @escaping (_ data: Data?, Error?) -> Void, timeoutAfter timeout: TimeInterval = 0, onTimeout: (()->Void)? = nil) -> URLSessionDataTask? {
-        
-        func sendError(_ error: String) {
-            print(error)
-            let userInfo = [NSLocalizedDescriptionKey: error]
-            completion(nil, NSError(domain: "performRequest", code: 1, userInfo: userInfo))
-        }
+    open static func performRequestReturnsData(_ url: URL, method: URLMethod? = .GET, jsonBody: [String: AnyObject]? = nil, headerValues: [[String]]? = nil, ignore5First: Bool = false, completion: @escaping (_ data: Data?, Error?) -> Void, timeoutAfter timeout: TimeInterval = 0, onTimeout: (()->Void)? = nil) -> URLSessionDataTask? {
         
         let urlRequest = NSMutableURLRequest(url: url)
         
@@ -115,7 +57,7 @@ class APIClient: NSObject {
                 urlRequest.addValue("application/json", forHTTPHeaderField: "Accept")
             } catch {
                 NSLog("Error unwraping json object")
-                sendError("Error unwraping json object")
+                completion(nil, buildError("Error unwraping json object"))
             }
         }
         
@@ -136,21 +78,21 @@ class APIClient: NSObject {
         let task = URLSession.shared.dataTask(with: urlRequest as URLRequest) { (data, response, error) in
             
             guard (error == nil) else {
-                sendError("There was an error with your request: \(error!)")
+                completion(nil, buildError("There was an error with your request: \(error!)"))
                 return
             }
             
             guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 else {
-                sendError("Your request returned a status code other than 2xx!")
+                completion(nil, buildError("Your request returned a status code other than 2xx!"))
                 return
             }
             
             guard var data = data else {
-                sendError("No data was returned by the request!")
+                completion(nil, buildError("No data was returned by the request!"))
                 return
             }
             
-            if urlRequest.url?.absoluteString.contains("session") ?? false {
+            if ignore5First {
                 let range = Range(5..<data.count)
                 data = data.subdata(in: range)
             }
