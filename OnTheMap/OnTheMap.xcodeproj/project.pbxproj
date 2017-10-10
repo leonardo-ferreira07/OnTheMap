@@ -17,6 +17,7 @@
 		A76B888D1F8BCCEA004BFB84 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A76B888B1F8BCCEA004BFB84 /* Main.storyboard */; };
 		A76B888F1F8BCCEA004BFB84 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A76B888E1F8BCCEA004BFB84 /* Assets.xcassets */; };
 		A76B88921F8BCCEA004BFB84 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A76B88901F8BCCEA004BFB84 /* LaunchScreen.storyboard */; };
+		A792729E1F8CF22500DA4D6D /* UserClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A792729D1F8CF22500DA4D6D /* UserClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		A76B888E1F8BCCEA004BFB84 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A76B88911F8BCCEA004BFB84 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A76B88931F8BCCEA004BFB84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A792729D1F8CF22500DA4D6D /* UserClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				A72E89901F8CD64E008B8D87 /* SessionClient.swift */,
+				A792729D1F8CF22500DA4D6D /* UserClient.swift */,
 			);
 			path = Clients;
 			sourceTree = "<group>";
@@ -192,6 +195,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A72E89931F8CD803008B8D87 /* Constants.swift in Sources */,
+				A792729E1F8CF22500DA4D6D /* UserClient.swift in Sources */,
 				A72E899B1F8CEBA4008B8D87 /* MemoryStorage.swift in Sources */,
 				A76B888A1F8BCCEA004BFB84 /* ViewController.swift in Sources */,
 				A72E89981F8CE604008B8D87 /* Session.swift in Sources */,
