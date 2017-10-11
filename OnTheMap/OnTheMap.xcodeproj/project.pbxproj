@@ -20,6 +20,8 @@
 		A76B88921F8BCCEA004BFB84 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A76B88901F8BCCEA004BFB84 /* LaunchScreen.storyboard */; };
 		A78A82711F8CF507005DAB72 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78A82701F8CF507005DAB72 /* User.swift */; };
 		A792729E1F8CF22500DA4D6D /* UserClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A792729D1F8CF22500DA4D6D /* UserClient.swift */; };
+		A7A1A1D01F8E64160053A34E /* StudentLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A1A1CF1F8E64160053A34E /* StudentLocation.swift */; };
+		A7A1A1D31F8E680B0053A34E /* ParserHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A1A1D21F8E680B0053A34E /* ParserHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		A76B88931F8BCCEA004BFB84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A78A82701F8CF507005DAB72 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A792729D1F8CF22500DA4D6D /* UserClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserClient.swift; sourceTree = "<group>"; };
+		A7A1A1CF1F8E64160053A34E /* StudentLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLocation.swift; sourceTree = "<group>"; };
+		A7A1A1D21F8E680B0053A34E /* ParserHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +88,7 @@
 			children = (
 				A72E89971F8CE604008B8D87 /* Session.swift */,
 				A78A82701F8CF507005DAB72 /* User.swift */,
+				A7A1A1CF1F8E64160053A34E /* StudentLocation.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -115,6 +120,7 @@
 		A76B88861F8BCCEA004BFB84 /* OnTheMap */ = {
 			isa = PBXGroup;
 			children = (
+				A7A1A1D11F8E67FD0053A34E /* Helpers */,
 				A72E89991F8CEB97008B8D87 /* Storage */,
 				A72E89961F8CE5D7008B8D87 /* Models */,
 				A72E898C1F8CCF02008B8D87 /* API */,
@@ -126,6 +132,14 @@
 				A76B88931F8BCCEA004BFB84 /* Info.plist */,
 			);
 			path = OnTheMap;
+			sourceTree = "<group>";
+		};
+		A7A1A1D11F8E67FD0053A34E /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				A7A1A1D21F8E680B0053A34E /* ParserHelper.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,6 +215,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A72E89931F8CD803008B8D87 /* Constants.swift in Sources */,
+				A7A1A1D01F8E64160053A34E /* StudentLocation.swift in Sources */,
+				A7A1A1D31F8E680B0053A34E /* ParserHelper.swift in Sources */,
 				A7534DBD1F8D0ABC00854171 /* StudentLocationClient.swift in Sources */,
 				A792729E1F8CF22500DA4D6D /* UserClient.swift in Sources */,
 				A72E899B1F8CEBA4008B8D87 /* MemoryStorage.swift in Sources */,

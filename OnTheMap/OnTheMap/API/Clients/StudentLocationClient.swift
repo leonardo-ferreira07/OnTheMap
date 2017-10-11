@@ -15,18 +15,19 @@ struct StudentLocationClient {
         
         let headers: [String: String] = ["X-Parse-Application-Id": "QrX47CA9cyuGewLdsL7o5Eb8iug6Em8ye0dnAbIr", "X-Parse-REST-API-Key": "QuWThTdiRmTux3YaDseUSEpUKo7aBYM737yKd4gY"]
         
-        _ = APIClient.performRequestReturnsData(url, headerValues: headers, completion: { (data, error) in
-            guard let data = data else {
+        _ = APIClient.performRequest(url, headerValues: headers, completion: { (dict, error) in
+            
+            guard let dict = dict else {
                 completion(false)
                 return
             }
             
-            completion(true)
+            if let array = dict[StudentLocationKeys.results.rawValue] as? [[String: AnyObject]] {
+                for object in array {
+                    print(StudentLocation(withDictionary: object))
+                }
+            }
             
-//            if let decoded = try? JSONDecoder().decode(Session.self, from: data) {
-//                MemoryStorage.shared.session = decoded
-//                completion(true)
-//            }
         }) {
             
         }
