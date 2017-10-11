@@ -16,4 +16,5 @@ class MemoryStorage {
     
     var session: Session?
     var user: User?
+    var studentsLocations: [StudentLocation] = []
 }

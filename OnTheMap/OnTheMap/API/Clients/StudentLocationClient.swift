@@ -24,7 +24,9 @@ struct StudentLocationClient {
             
             if let array = dict[StudentLocationKeys.results.rawValue] as? [[String: AnyObject]] {
                 for object in array {
-                    print(StudentLocation(withDictionary: object))
+                    MemoryStorage.shared.studentsLocations.removeAll()
+                    MemoryStorage.shared.studentsLocations.append(StudentLocation(withDictionary: object))
+                    print(MemoryStorage.shared.studentsLocations)
                 }
             }
             
