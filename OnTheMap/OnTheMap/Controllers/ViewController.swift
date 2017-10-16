@@ -39,6 +39,13 @@ class ViewController: UIViewController {
     }
 
     
-
+    @IBAction func deleteSessionPressed(_ sender: Any) {
+        SessionClient.deleteSession { (success) in
+            if success {
+                print("session deleted successfully")
+            }
+        }
+    }
+    
 }
 
