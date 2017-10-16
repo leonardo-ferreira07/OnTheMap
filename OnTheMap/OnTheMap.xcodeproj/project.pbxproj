@@ -16,6 +16,8 @@
 		A73304B51F94DF7B00CE8BC1 /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73304B41F94DF7B00CE8BC1 /* DesignableView.swift */; };
 		A73304B71F94DFC700CE8BC1 /* DesignableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73304B61F94DFC700CE8BC1 /* DesignableButton.swift */; };
 		A73304BA1F94E65B00CE8BC1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73304B91F94E65B00CE8BC1 /* LoginViewController.swift */; };
+		A73304BC1F94EA8600CE8BC1 /* String+Validations.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73304BB1F94EA8600CE8BC1 /* String+Validations.swift */; };
+		A73304BE1F94EC1A00CE8BC1 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73304BD1F94EC1A00CE8BC1 /* Extensions.swift */; };
 		A7534DBD1F8D0ABC00854171 /* StudentLocationClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7534DBC1F8D0ABC00854171 /* StudentLocationClient.swift */; };
 		A76B88881F8BCCEA004BFB84 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76B88871F8BCCEA004BFB84 /* AppDelegate.swift */; };
 		A76B888A1F8BCCEA004BFB84 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76B88891F8BCCEA004BFB84 /* ViewController.swift */; };
@@ -38,6 +40,8 @@
 		A73304B41F94DF7B00CE8BC1 /* DesignableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableView.swift; sourceTree = "<group>"; };
 		A73304B61F94DFC700CE8BC1 /* DesignableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableButton.swift; sourceTree = "<group>"; };
 		A73304B91F94E65B00CE8BC1 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		A73304BB1F94EA8600CE8BC1 /* String+Validations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Validations.swift"; sourceTree = "<group>"; };
+		A73304BD1F94EC1A00CE8BC1 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		A7534DBC1F8D0ABC00854171 /* StudentLocationClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLocationClient.swift; sourceTree = "<group>"; };
 		A76B88841F8BCCEA004BFB84 /* OnTheMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A76B88871F8BCCEA004BFB84 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -114,6 +118,8 @@
 			children = (
 				A73304B41F94DF7B00CE8BC1 /* DesignableView.swift */,
 				A73304B61F94DFC700CE8BC1 /* DesignableButton.swift */,
+				A73304BB1F94EA8600CE8BC1 /* String+Validations.swift */,
+				A73304BD1F94EC1A00CE8BC1 /* Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -270,6 +276,7 @@
 				A72E89931F8CD803008B8D87 /* Constants.swift in Sources */,
 				A7A1A1D01F8E64160053A34E /* StudentLocation.swift in Sources */,
 				A7A1A1D31F8E680B0053A34E /* ParserHelper.swift in Sources */,
+				A73304BC1F94EA8600CE8BC1 /* String+Validations.swift in Sources */,
 				A73304BA1F94E65B00CE8BC1 /* LoginViewController.swift in Sources */,
 				A73304B51F94DF7B00CE8BC1 /* DesignableView.swift in Sources */,
 				A7534DBD1F8D0ABC00854171 /* StudentLocationClient.swift in Sources */,
@@ -280,6 +287,7 @@
 				A73304B71F94DFC700CE8BC1 /* DesignableButton.swift in Sources */,
 				A78A82711F8CF507005DAB72 /* User.swift in Sources */,
 				A72E89911F8CD64E008B8D87 /* SessionClient.swift in Sources */,
+				A73304BE1F94EC1A00CE8BC1 /* Extensions.swift in Sources */,
 				A76B88881F8BCCEA004BFB84 /* AppDelegate.swift in Sources */,
 				A72E898E1F8CCF14008B8D87 /* APIClient.swift in Sources */,
 			);

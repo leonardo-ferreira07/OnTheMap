@@ -31,4 +31,8 @@ struct Constants {
     // MARK: - Students location
     
     static let apiPathUdacityParseStudentLocations = "parse/classes/StudentLocation"
+    
+    // MARK: - URL Sign up
+    
+    static let urlSignUp = "https://www.udacity.com/account/auth#!/signup"
 }
