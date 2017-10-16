@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="2M2-h1-cUu">
             <objects>
-                <viewController id="qzj-3k-KUP" sceneMemberID="viewController">
+                <viewController id="qzj-3k-KUP" customClass="LoginViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kW5-0b-Vhn">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -34,7 +34,7 @@
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ASJ-7V-YLt">
                                         <rect key="frame" x="0.0" y="60" width="295" height="50"/>
@@ -43,7 +43,7 @@
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4fk-Lg-z5H" customClass="DesignableButton" customModule="OnTheMap" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="120" width="295" height="50"/>
@@ -59,6 +59,9 @@
                                                 <real key="value" value="5"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="loginButtonPressed:" destination="qzj-3k-KUP" eventType="touchUpInside" id="Dd7-XQ-Ody"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -89,6 +92,9 @@
                                                 </fragment>
                                             </attributedString>
                                         </state>
+                                        <connections>
+                                            <action selector="signUpButtonPressed:" destination="qzj-3k-KUP" eventType="touchUpInside" id="bUl-87-ryg"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -106,10 +112,23 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="YcN-b4-o35"/>
                     </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="QbG-qF-qFp" id="ZyB-M2-xk5"/>
+                        <outlet property="passwordTextField" destination="ASJ-7V-YLt" id="Ll2-qr-0Hr"/>
+                        <segue destination="aKF-An-v6E" kind="show" identifier="goMainStoryboard" id="nNa-Kn-qoy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5c9-mz-nxs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-274" y="82"/>
+            <point key="canvasLocation" x="-401" y="84"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="xPh-cO-OlA">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="aKF-An-v6E" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6a4-t9-ucb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="552" y="31"/>
         </scene>
     </scenes>
     <resources>

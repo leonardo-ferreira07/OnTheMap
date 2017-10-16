@@ -15,6 +15,7 @@
 		A73304B21F94DD9400CE8BC1 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A73304B11F94DD9400CE8BC1 /* Login.storyboard */; };
 		A73304B51F94DF7B00CE8BC1 /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73304B41F94DF7B00CE8BC1 /* DesignableView.swift */; };
 		A73304B71F94DFC700CE8BC1 /* DesignableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73304B61F94DFC700CE8BC1 /* DesignableButton.swift */; };
+		A73304BA1F94E65B00CE8BC1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73304B91F94E65B00CE8BC1 /* LoginViewController.swift */; };
 		A7534DBD1F8D0ABC00854171 /* StudentLocationClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7534DBC1F8D0ABC00854171 /* StudentLocationClient.swift */; };
 		A76B88881F8BCCEA004BFB84 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76B88871F8BCCEA004BFB84 /* AppDelegate.swift */; };
 		A76B888A1F8BCCEA004BFB84 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76B88891F8BCCEA004BFB84 /* ViewController.swift */; };
@@ -36,6 +37,7 @@
 		A73304B11F94DD9400CE8BC1 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		A73304B41F94DF7B00CE8BC1 /* DesignableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableView.swift; sourceTree = "<group>"; };
 		A73304B61F94DFC700CE8BC1 /* DesignableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableButton.swift; sourceTree = "<group>"; };
+		A73304B91F94E65B00CE8BC1 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A7534DBC1F8D0ABC00854171 /* StudentLocationClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLocationClient.swift; sourceTree = "<group>"; };
 		A76B88841F8BCCEA004BFB84 /* OnTheMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A76B88871F8BCCEA004BFB84 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -116,6 +118,14 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		A73304B81F94E63600CE8BC1 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				A73304B91F94E65B00CE8BC1 /* LoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		A76B887B1F8BCCEA004BFB84 = {
 			isa = PBXGroup;
 			children = (
@@ -170,6 +180,7 @@
 		A783A2211F8E6B9000DA93C1 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				A73304B81F94E63600CE8BC1 /* Login */,
 				A76B88891F8BCCEA004BFB84 /* ViewController.swift */,
 			);
 			path = Controllers;
@@ -259,6 +270,7 @@
 				A72E89931F8CD803008B8D87 /* Constants.swift in Sources */,
 				A7A1A1D01F8E64160053A34E /* StudentLocation.swift in Sources */,
 				A7A1A1D31F8E680B0053A34E /* ParserHelper.swift in Sources */,
+				A73304BA1F94E65B00CE8BC1 /* LoginViewController.swift in Sources */,
 				A73304B51F94DF7B00CE8BC1 /* DesignableView.swift in Sources */,
 				A7534DBD1F8D0ABC00854171 /* StudentLocationClient.swift in Sources */,
 				A792729E1F8CF22500DA4D6D /* UserClient.swift in Sources */,

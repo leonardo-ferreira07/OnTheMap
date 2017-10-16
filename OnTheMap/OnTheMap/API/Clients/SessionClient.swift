@@ -12,9 +12,9 @@ struct SessionClient {
     
     static fileprivate let url = APIClient.buildURL(withHost: Constants.apiHostUdacity, withPathExtension: Constants.apiPathUdacitySession)
     
-    static func postSession(_ completion: @escaping (_ success: Bool) -> Void) {
+    static func postSession(withEmail email: String, password: String, completion: @escaping (_ success: Bool) -> Void) {
         
-        let jsonBody = ["udacity": ["username": "account@domain.com", "password": "********"]] as [String: AnyObject]
+        let jsonBody = ["udacity": ["username": email, "password": password]] as [String: AnyObject]
         
         _ = APIClient.performRequestReturnsData(url, method: .POST, jsonBody: jsonBody, ignore5First: true, completion: { (data, error) in
             guard let data = data else {
