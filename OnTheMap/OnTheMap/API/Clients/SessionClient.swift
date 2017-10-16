@@ -10,8 +10,10 @@ import Foundation
 
 struct SessionClient {
     
+    static fileprivate let url = APIClient.buildURL(withHost: Constants.apiHostUdacity, withPathExtension: Constants.apiPathUdacitySession)
+    
     static func postSession(_ completion: @escaping (_ success: Bool) -> Void) {
-        let url = APIClient.buildURL(withHost: Constants.apiHostUdacity, withPathExtension: Constants.apiPathUdacitySession)
+        
         let jsonBody = ["udacity": ["username": "account@domain.com", "password": "********"]] as [String: AnyObject]
         
         _ = APIClient.performRequestReturnsData(url, method: .POST, jsonBody: jsonBody, ignore5First: true, completion: { (data, error) in
@@ -24,6 +26,28 @@ struct SessionClient {
                 MemoryStorage.shared.session = decoded
                 completion(true)
             }
+        }) {
+            
+        }
+    }
+    
+    static func deleteSession(_ completion: @escaping (_ success: Bool) -> Void) {
+        
+        var headers: [String: String] = [:]
+        
+        if let cookies = HTTPCookieStorage.shared.cookies {
+            for cookie in cookies where cookie.name == "XSRF-TOKEN" {
+                headers["X-XSRF-TOKEN"] = cookie.value
+            }
+        }
+        
+        _ = APIClient.performRequestReturnsData(url, method: .DELETE, ignore5First: true, completion: { (data, error) in
+            guard data != nil else {
+                completion(false)
+                return
+            }
+            
+            completion(true)
         }) {
             
         }
