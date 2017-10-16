@@ -35,7 +35,7 @@ struct StudentLocationClient {
         }
     }
     
-    static func postStudentLocation(_  completion: @escaping (_ success: Bool) -> Void) {
+    static func postStudentLocation(_ completion: @escaping (_ success: Bool) -> Void) {
         
         guard let id = MemoryStorage.shared.session?.account.id, let firstName = MemoryStorage.shared.user?.user.firstName, let lastName = MemoryStorage.shared.user?.user.lastName else {
             completion(false)
