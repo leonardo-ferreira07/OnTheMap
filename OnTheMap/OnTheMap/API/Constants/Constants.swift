@@ -16,7 +16,7 @@ struct Constants {
     
     // MARK: - Hosts
     
-    static let apiHostUdacity = "udacity.com"
+    static let apiHostUdacity = "www.udacity.com"
     
     static let apiHostParseClasses = "parse.udacity.com"
     
