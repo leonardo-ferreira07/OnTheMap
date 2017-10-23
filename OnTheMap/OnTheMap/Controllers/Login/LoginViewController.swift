@@ -28,12 +28,14 @@ class LoginViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction func loginButtonPressed(_ sender: UIButton) {
+        self.view.startLoadingAnimation()
         if let email = emailTextField.text, let password = passwordTextField.text, email.isValidEmail(), password.characters.count > 0 {
             SessionClient.postSession(withEmail: email, password: password, completion: { (success) in
                 if success {
                     
                     UserClient.getUserData(withId: MemoryStorage.shared.session?.account.id ?? "", completion: { (success) in
                         if success {
+                            self.view.stopLoadingAnimation()
                             self.performSegue(withIdentifier: "goMainStoryboard", sender: nil)
                             print("success login")
                         } else {

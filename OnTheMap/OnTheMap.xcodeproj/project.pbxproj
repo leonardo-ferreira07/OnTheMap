@@ -28,6 +28,9 @@
 		A76B888D1F8BCCEA004BFB84 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A76B888B1F8BCCEA004BFB84 /* Main.storyboard */; };
 		A76B888F1F8BCCEA004BFB84 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A76B888E1F8BCCEA004BFB84 /* Assets.xcassets */; };
 		A76B88921F8BCCEA004BFB84 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A76B88901F8BCCEA004BFB84 /* LaunchScreen.storyboard */; };
+		A771636D1F9E2DF0007F90F2 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A771636C1F9E2DF0007F90F2 /* LoadingView.swift */; };
+		A77163711F9E2FF2007F90F2 /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A77163701F9E2FF2007F90F2 /* LoadingView.xib */; };
+		A77163731F9E3118007F90F2 /* LoadingViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77163721F9E3118007F90F2 /* LoadingViewPresenter.swift */; };
 		A78A82711F8CF507005DAB72 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78A82701F8CF507005DAB72 /* User.swift */; };
 		A792729E1F8CF22500DA4D6D /* UserClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A792729D1F8CF22500DA4D6D /* UserClient.swift */; };
 		A7A1A1D01F8E64160053A34E /* StudentLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A1A1CF1F8E64160053A34E /* StudentLocation.swift */; };
@@ -60,6 +63,9 @@
 		A76B888E1F8BCCEA004BFB84 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A76B88911F8BCCEA004BFB84 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A76B88931F8BCCEA004BFB84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A771636C1F9E2DF0007F90F2 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		A77163701F9E2FF2007F90F2 /* LoadingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
+		A77163721F9E3118007F90F2 /* LoadingViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewPresenter.swift; sourceTree = "<group>"; };
 		A78A82701F8CF507005DAB72 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A792729D1F8CF22500DA4D6D /* UserClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserClient.swift; sourceTree = "<group>"; };
 		A7A1A1CF1F8E64160053A34E /* StudentLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLocation.swift; sourceTree = "<group>"; };
@@ -203,6 +209,16 @@
 			path = OnTheMap;
 			sourceTree = "<group>";
 		};
+		A771636B1F9E2DE3007F90F2 /* Customs */ = {
+			isa = PBXGroup;
+			children = (
+				A771636C1F9E2DF0007F90F2 /* LoadingView.swift */,
+				A77163701F9E2FF2007F90F2 /* LoadingView.xib */,
+				A77163721F9E3118007F90F2 /* LoadingViewPresenter.swift */,
+			);
+			path = Customs;
+			sourceTree = "<group>";
+		};
 		A783A21F1F8E6B5C00DA93C1 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
@@ -253,6 +269,7 @@
 		A7FC79A31F97B44F00F2C82C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A771636B1F9E2DE3007F90F2 /* Customs */,
 				A7FC79A41F97B45B00F2C82C /* Cells */,
 			);
 			path = Views;
@@ -328,6 +345,7 @@
 				A7220B971F9DE38700C597FB /* Location.storyboard in Resources */,
 				A73304B21F94DD9400CE8BC1 /* Login.storyboard in Resources */,
 				A76B88921F8BCCEA004BFB84 /* LaunchScreen.storyboard in Resources */,
+				A77163711F9E2FF2007F90F2 /* LoadingView.xib in Resources */,
 				A76B888F1F8BCCEA004BFB84 /* Assets.xcassets in Resources */,
 				A76B888D1F8BCCEA004BFB84 /* Main.storyboard in Resources */,
 			);
@@ -362,6 +380,8 @@
 				A76B88881F8BCCEA004BFB84 /* AppDelegate.swift in Sources */,
 				A7FC79A61F97B47500F2C82C /* ListStudentTableViewCell.swift in Sources */,
 				A72E898E1F8CCF14008B8D87 /* APIClient.swift in Sources */,
+				A77163731F9E3118007F90F2 /* LoadingViewPresenter.swift in Sources */,
+				A771636D1F9E2DF0007F90F2 /* LoadingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

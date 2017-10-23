@@ -24,4 +24,30 @@ extension UIViewController: SFSafariViewControllerDelegate {
         alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
+    
+}
+
+
+extension UIView {
+    func startLoadingAnimation() {
+        stopLoadingAnimation()
+        
+        DispatchQueue.main.async {
+            let loadingView = LoadingViewPresenter.newInstance()
+            loadingView.frame = UIScreen.main.bounds
+            UIApplication.shared.keyWindow?.addSubview(loadingView)
+        }
+    }
+    
+    func stopLoadingAnimation() {
+        DispatchQueue.main.async {
+            if let subviews = UIApplication.shared.keyWindow?.subviews {
+                for subview in subviews {
+                    if let subview = subview as? LoadingViewPresenter {
+                        subview.removeFromSuperview()
+                    }
+                }
+            }
+        }
+    }
 }
