@@ -115,7 +115,7 @@
         <!--Post Location-->
         <scene sceneID="yhP-gf-pMS">
             <objects>
-                <viewController title="Post Location" id="CuH-fs-F5D" sceneMemberID="viewController">
+                <viewController title="Post Location" id="CuH-fs-F5D" customClass="AddLocationMapViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RAD-0K-Ceh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -123,16 +123,40 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ODA-9g-4Wd">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wF3-4o-ocr" customClass="DesignableButton" customModule="OnTheMap" customModuleProvider="target">
+                                <rect key="frame" x="40" y="597" width="295" height="50"/>
+                                <color key="backgroundColor" red="0.05443591624" green="0.3977286518" blue="0.53933483360000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="TUO-ZX-lFN"/>
+                                </constraints>
+                                <state key="normal" title="FINISH">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="postLocationPressed:" destination="CuH-fs-F5D" eventType="touchUpInside" id="Hbg-T4-mYT"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="ODA-9g-4Wd" firstAttribute="bottom" secondItem="ktl-n5-Tsq" secondAttribute="bottom" id="0oU-tC-2ON"/>
+                            <constraint firstItem="ktl-n5-Tsq" firstAttribute="trailing" secondItem="wF3-4o-ocr" secondAttribute="trailing" constant="40" id="1sZ-no-Odf"/>
+                            <constraint firstItem="wF3-4o-ocr" firstAttribute="leading" secondItem="ktl-n5-Tsq" secondAttribute="leading" constant="40" id="As1-dH-5ek"/>
                             <constraint firstItem="ODA-9g-4Wd" firstAttribute="leading" secondItem="ktl-n5-Tsq" secondAttribute="leading" id="D0a-a0-dwU"/>
                             <constraint firstItem="ODA-9g-4Wd" firstAttribute="top" secondItem="ktl-n5-Tsq" secondAttribute="top" id="WeP-Rc-UYz"/>
                             <constraint firstItem="ODA-9g-4Wd" firstAttribute="trailing" secondItem="ktl-n5-Tsq" secondAttribute="trailing" id="tcz-0n-JYR"/>
+                            <constraint firstItem="ktl-n5-Tsq" firstAttribute="bottom" secondItem="wF3-4o-ocr" secondAttribute="bottom" constant="20" id="xWn-h0-8R6"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ktl-n5-Tsq"/>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="ODA-9g-4Wd" id="GvZ-2S-cMA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="04e-7g-eqb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

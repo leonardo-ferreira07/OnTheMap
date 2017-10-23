@@ -14,6 +14,8 @@ class AddLocationViewController: UIViewController {
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var linkTextField: UITextField!
     
+    var coordinate: CLLocationCoordinate2D?
+    
     lazy var geocoder = CLGeocoder()
     
     override func viewDidLoad() {
@@ -25,6 +27,14 @@ class AddLocationViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let viewController = segue.destination as? AddLocationMapViewController {
+            viewController.coordinate = coordinate
+            viewController.mapString = locationTextField.text
+            viewController.mediaURL = linkTextField.text
+        }
     }
     
 
@@ -74,7 +84,7 @@ extension AddLocationViewController {
             }
             
             if let location = location {
-                let coordinate = location.coordinate
+                coordinate = location.coordinate
                 performSegue(withIdentifier: "showPostLocation", sender: nil)
                 print(coordinate)
             } else {

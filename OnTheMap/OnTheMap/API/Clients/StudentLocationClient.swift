@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreLocation
 
 struct StudentLocationClient {
     
@@ -37,7 +38,7 @@ struct StudentLocationClient {
         }
     }
     
-    static func postStudentLocation(_ completion: @escaping (_ success: Bool) -> Void) {
+    static func postStudentLocation(mapString: String, mediaURL: String, coordinate: CLLocationCoordinate2D, completion: @escaping (_ success: Bool) -> Void) {
         
         guard let id = MemoryStorage.shared.session?.account.id, let firstName = MemoryStorage.shared.user?.user.firstName, let lastName = MemoryStorage.shared.user?.user.lastName else {
             completion(false)
@@ -49,10 +50,10 @@ struct StudentLocationClient {
         let jsonBody = ["uniqueKey": id,
                         "firstName": firstName,
                         "lastName": lastName,
-                        "mapString": "Mountain View, CA",
-                        "mediaURL": "https://udacity.com",
-                        "latitude": 37.386052,
-                        "longitude": -122.083851] as [String: AnyObject]
+                        "mapString": mapString,
+                        "mediaURL": mediaURL,
+                        "latitude":  coordinate.latitude,
+                        "longitude": coordinate.longitude] as [String: AnyObject]
         
         _ = APIClient.performRequest(url, method: .POST, jsonBody: jsonBody, headerValues: headers, completion: { (dict, error) in
             
