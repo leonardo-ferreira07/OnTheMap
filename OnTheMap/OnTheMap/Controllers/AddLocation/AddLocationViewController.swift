@@ -56,12 +56,12 @@ class AddLocationViewController: UIViewController {
 extension AddLocationViewController {
     func getGeocoder() {
         
-        guard let location = locationTextField.text else {
+        guard let location = locationTextField.text, location.characters.count > 0 else {
             // error
             return
         }
         
-        guard let link = linkTextField.text else {
+        guard let link = linkTextField.text, link.characters.count > 0 else {
             // error
             return
         }
