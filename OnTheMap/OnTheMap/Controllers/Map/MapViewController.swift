@@ -73,7 +73,7 @@ extension MapViewController {
 
 // MARK : - MKMapView Delegate
 
-extension MapViewController {
+extension MapViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         
@@ -84,7 +84,7 @@ extension MapViewController {
         if pinView == nil {
             pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
             pinView!.canShowCallout = true
-            pinView!.pinTintColor = .red
+            pinView!.pinTintColor = .blue
             pinView!.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
         } else {
             pinView!.annotation = annotation

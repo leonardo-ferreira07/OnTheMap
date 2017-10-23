@@ -28,6 +28,7 @@ class LoginViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction func loginButtonPressed(_ sender: UIButton) {
+        resignTextFields()
         self.view.startLoadingAnimation()
         if let email = emailTextField.text, let password = passwordTextField.text, email.isValidEmail(), password.characters.count > 0 {
             SessionClient.postSession(withEmail: email, password: password, completion: { (success) in
@@ -56,6 +57,13 @@ class LoginViewController: UIViewController {
         presentWebPageInSafari(withURLString: Constants.urlSignUp)
     }
     
-    
+}
 
+// MARK: - TextFields configs
+
+extension LoginViewController {
+    func resignTextFields() {
+        emailTextField.resignFirstResponder()
+        passwordTextField.resignFirstResponder()
+    }
 }
