@@ -112,6 +112,7 @@
                             <barButtonItem systemItem="add" id="cYt-QU-T89">
                                 <connections>
                                     <action selector="addStudentLocationPressed:" destination="bBX-lm-5Nf" id="V5V-rY-ldZ"/>
+                                    <segue destination="JBm-Sj-1bK" kind="show" id="Zz5-k2-lDb"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem systemItem="refresh" id="3ie-JU-Igm">
@@ -202,6 +203,7 @@
                             <barButtonItem systemItem="add" id="JI6-ak-8rR">
                                 <connections>
                                     <action selector="addStudentLocationPressed:" destination="BYZ-38-t0r" id="yWA-vq-vIG"/>
+                                    <segue destination="JBm-Sj-1bK" kind="show" id="27e-fO-pQN"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem systemItem="refresh" id="h66-FM-1Ge">
@@ -222,6 +224,14 @@
             </objects>
             <point key="canvasLocation" x="1076" y="-155"/>
         </scene>
+        <!--Location-->
+        <scene sceneID="fAz-G2-kQS">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Location" id="JBm-Sj-1bK" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SS9-lW-eSa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1990" y="120"/>
+        </scene>
     </scenes>
     <resources>
         <image name="icon_listview-deselected" width="75" height="50"/>
@@ -230,4 +240,7 @@
         <image name="icon_mapview-selected" width="75" height="50"/>
         <image name="icon_pin" width="24" height="24"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Zz5-k2-lDb"/>
+    </inferredMetricsTieBreakers>
 </document>
