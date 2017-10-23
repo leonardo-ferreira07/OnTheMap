@@ -32,9 +32,7 @@ class APIClient: NSObject {
                 return
             }
             
-            DispatchQueue.main.async(execute: {
-                completion(jsonObject, nil)
-            })
+            completion(jsonObject, nil)
             
         }, timeoutAfter: timeout) {
             
