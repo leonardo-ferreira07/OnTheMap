@@ -11,7 +11,7 @@ extension UIViewController: SFSafariViewControllerDelegate {
     
     public func presentWebPageInSafari(withURLString URLString: String) {
         
-        if let url = URL(string: URLString) {
+        if let url = URL(string: URLString), UIApplication.shared.canOpenURL(url) {
             let vc = SFSafariViewController(url: url)
             vc.delegate = self
             self.present(vc, animated: true)
