@@ -34,11 +34,14 @@ class AddLocationMapViewController: UIViewController {
     @IBAction func postLocationPressed(_ sender: Any) {
         
         if let mapString = mapString, let mediaURL = mediaURL, let coordinate = coordinate {
+            self.view.startLoadingAnimation()
             StudentLocationClient.postStudentLocation(mapString: mapString, mediaURL: mediaURL, coordinate: coordinate) { (success) in
                 if success {
+                    self.view.stopLoadingAnimation()
                     print("location posted")
                     self.dismiss(animated: true, completion: nil)
                 } else {
+                    self.view.stopLoadingAnimation()
                     self.showAlert("Post Location Error", message: "There was an error to post your data to the server, check your connection.")
                 }
             }

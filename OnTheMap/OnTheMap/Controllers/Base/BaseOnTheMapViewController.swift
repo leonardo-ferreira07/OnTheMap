@@ -28,11 +28,15 @@ class BaseOnTheMapViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction func deleteSessionPressed(_ sender: Any) {
+        self.view.startLoadingAnimation()
         logoutButton(enabled: false)
         SessionClient.deleteSession { (success) in
             self.logoutButton(enabled: true)
+            self.view.stopLoadingAnimation()
             if success {
                 self.dismiss(animated: true, completion: nil)
+            } else {
+                self.showAlert("Logout Error", message: "Opsss. Error while trying to log you out.")
             }
         }
     }

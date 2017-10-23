@@ -55,6 +55,7 @@ class AddLocationViewController: UIViewController {
 
 extension AddLocationViewController {
     func getGeocoder() {
+        resignTextFields()
         
         guard let location = locationTextField.text, location.characters.count > 0 else {
             showAlert("Location Error", message: "You must insert a location before continue.")
@@ -73,8 +74,10 @@ extension AddLocationViewController {
     }
     
     private func processResponse(withPlacemarks placemarks: [CLPlacemark]?, error: Error?) {
+        self.view.startLoadingAnimation()
         
         if error != nil {
+            self.view.stopLoadingAnimation()
             showAlert("Location Error", message: "Opsss. Unable to Forward Geocode Address")
         } else {
             var location: CLLocation?
@@ -84,11 +87,22 @@ extension AddLocationViewController {
             }
             
             if let location = location {
+                self.view.stopLoadingAnimation()
                 coordinate = location.coordinate
                 performSegue(withIdentifier: "showPostLocation", sender: nil)
             } else {
+                self.view.stopLoadingAnimation()
                 showAlert("Location Error", message: "No Matching Location Found")
             }
         }
+    }
+}
+
+// MARK: - Resign TextFields
+
+extension AddLocationViewController {
+    func resignTextFields() {
+        locationTextField.resignFirstResponder()
+        linkTextField.resignFirstResponder()
     }
 }

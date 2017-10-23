@@ -40,15 +40,18 @@ class LoginViewController: UIViewController {
                             self.performSegue(withIdentifier: "goMainStoryboard", sender: nil)
                             print("success login")
                         } else {
+                            self.view.stopLoadingAnimation()
                             self.showAlert("Login Error", message: "Opsss, we got an error trying to fetch your user data.")
                         }
                     })
                     
                 } else {
+                    self.view.stopLoadingAnimation()
                     self.showAlert("Login Error", message: "Email or password does not match.")
                 }
             })
         } else {
+            self.view.stopLoadingAnimation()
             showAlert("Login Error", message: "Email or password is not in the correct format.")
         }
     }
