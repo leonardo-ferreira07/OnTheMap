@@ -59,7 +59,7 @@
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RlZ-5Q-eUu" customClass="DesignableButton" customModule="OnTheMap" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="120" width="295" height="50"/>
@@ -75,6 +75,9 @@
                                                 <real key="value" value="5"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="findLocationPressed:" destination="4ao-e2-0If" eventType="touchUpInside" id="EV9-Wg-XHa"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -100,7 +103,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="CuH-fs-F5D" kind="show" id="pCz-LK-shE"/>
+                        <outlet property="linkTextField" destination="Lru-b9-GVg" id="cDv-th-WYk"/>
+                        <outlet property="locationTextField" destination="IbC-KY-HiW" id="Vgw-SG-hpG"/>
+                        <segue destination="CuH-fs-F5D" kind="show" identifier="showPostLocation" id="pCz-LK-shE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WXG-6H-f6B" userLabel="First Responder" sceneMemberID="firstResponder"/>
