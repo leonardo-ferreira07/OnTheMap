@@ -29,7 +29,10 @@ class ListViewController: UIViewController {
             if success {
                 self.items = MemoryStorage.shared.studentsLocations
                 self.tableView.reloadData()
-
+                
+                // trick because table view is not working properly
+                self.tableView.scrollToRow(at: IndexPath(row: self.items.count-1, section: 0), at: .top, animated: false)
+                self.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
             }
         }
         
