@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -25,7 +26,7 @@
             </objects>
             <point key="canvasLocation" x="169" y="708"/>
         </scene>
-        <!--List View Controller-->
+        <!--On The Map-->
         <scene sceneID="AFE-Ob-P0V">
             <objects>
                 <viewController id="bBX-lm-5Nf" customClass="ListViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
@@ -103,8 +104,29 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" id="NX5-OL-R6C"/>
-                    <navigationItem key="navigationItem" id="aZ3-FU-qLr"/>
+                    <navigationItem key="navigationItem" title="On The Map" id="aZ3-FU-qLr">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="hox-dK-JbU">
+                            <connections>
+                                <action selector="deleteSessionPressed:" destination="bBX-lm-5Nf" id="b3G-oC-iuO"/>
+                            </connections>
+                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="add" id="cYt-QU-T89">
+                                <connections>
+                                    <action selector="addStudentLocationPressed:" destination="bBX-lm-5Nf" id="V5V-rY-ldZ"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="refresh" id="3ie-JU-Igm">
+                                <connections>
+                                    <action selector="refreshStudentsLocationsPressed:" destination="bBX-lm-5Nf" id="uSE-gj-9Kn"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
                     <connections>
+                        <outlet property="addButton" destination="cYt-QU-T89" id="Hfl-R1-Qee"/>
+                        <outlet property="logoutButton" destination="hox-dK-JbU" id="Kfi-YD-yhT"/>
+                        <outlet property="refreshButton" destination="3ie-JU-Igm" id="sSX-nI-X7C"/>
                         <outlet property="tableView" destination="4aH-n7-dF4" id="IPX-Bk-dHg"/>
                     </connections>
                 </viewController>
@@ -147,10 +169,10 @@
             </objects>
             <point key="canvasLocation" x="169" y="-155"/>
         </scene>
-        <!--Item-->
+        <!--On The Map-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MapViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="PYU-yO-IA5"/>
                         <viewControllerLayoutGuide type="bottom" id="VmF-PO-dzS"/>
@@ -158,20 +180,33 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cxM-ri-Iiu">
-                                <rect key="frame" x="164" y="318" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="deleteSessionPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Bf3-gk-Ye3"/>
-                                </connections>
-                            </button>
-                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="SKG-Bs-BsH"/>
-                    <navigationItem key="navigationItem" id="KJM-zv-0mi"/>
+                    <navigationItem key="navigationItem" title="On The Map" id="KJM-zv-0mi">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="Rwe-bV-z47">
+                            <connections>
+                                <action selector="deleteSessionPressed:" destination="BYZ-38-t0r" id="HTp-fV-EFV"/>
+                            </connections>
+                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="add" id="JI6-ak-8rR">
+                                <connections>
+                                    <action selector="addStudentLocationPressed:" destination="BYZ-38-t0r" id="yWA-vq-vIG"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="refresh" id="h66-FM-1Ge">
+                                <connections>
+                                    <action selector="refreshStudentsLocationsPressed:" destination="BYZ-38-t0r" id="j3u-QL-TLN"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="addButton" destination="JI6-ak-8rR" id="itR-Xk-uTT"/>
+                        <outlet property="logoutButton" destination="Rwe-bV-z47" id="Osu-7r-rGx"/>
+                        <outlet property="refreshButton" destination="h66-FM-1Ge" id="n9y-SB-LNP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

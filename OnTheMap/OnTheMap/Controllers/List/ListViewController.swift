@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ListViewController: UIViewController {
+class ListViewController: BaseOnTheMapViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -21,21 +21,7 @@ class ListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        
-        StudentLocationClient.getStudentsLocations { (success) in
-            if success {
-                self.items = MemoryStorage.shared.studentsLocations
-                self.tableView.reloadData()
-                
-                // trick because table view is not working properly
-                self.tableView.scrollToRow(at: IndexPath(row: self.items.count-1, section: 0), at: .top, animated: false)
-                self.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
-            }
-        }
-        
+        refreshLocations()
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,17 +29,10 @@ class ListViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    private func jsonObject(_ data: Data?) -> AnyObject?{
-        if let data = data {
-            do {
-                let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
-                return json as AnyObject?
-            } catch {
-                print("error serializing JSON: \(error)")
-            }
-        }
-        
-        return nil
+    // MARK: - Overriding Actions
+    
+    override func refreshStudentsLocationsPressed(_ sender: Any) {
+        refreshLocations()
     }
 
 }
@@ -92,5 +71,23 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
         return 70
     }
     
-    
+}
+
+// MARK: - Refresh Students Locations
+
+extension ListViewController {
+    func refreshLocations() {
+        refreshButton(enabled: false)
+        StudentLocationClient.getStudentsLocations { (success) in
+            self.refreshButton(enabled: true)
+            if success {
+                self.items = MemoryStorage.shared.studentsLocations
+                self.tableView.reloadData()
+                
+                // trick because table view is not working properly
+                self.tableView.scrollToRow(at: IndexPath(row: self.items.count-1, section: 0), at: .top, animated: false)
+                self.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+            }
+        }
+    }
 }
