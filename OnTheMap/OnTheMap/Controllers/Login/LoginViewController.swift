@@ -28,13 +28,17 @@ class LoginViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction func loginButtonPressed(_ sender: UIButton) {
-        if let email = emailTextField.text, let password = passwordTextField.text, email.isValidEmail(), email.characters.count > 0 && password.characters.count > 0 {
+        if let email = emailTextField.text, let password = passwordTextField.text, email.isValidEmail(), password.characters.count > 0 {
             SessionClient.postSession(withEmail: email, password: password, completion: { (success) in
                 if success {
                     self.performSegue(withIdentifier: "goMainStoryboard", sender: nil)
                     print("success login")
+                } else {
+                    self.showAlert("Login Error", message: "Email or password does not match.")
                 }
             })
+        } else {
+            showAlert("Login Error", message: "Email or password is not in the correct format.")
         }
     }
     

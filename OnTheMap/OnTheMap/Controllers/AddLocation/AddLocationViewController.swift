@@ -57,12 +57,12 @@ extension AddLocationViewController {
     func getGeocoder() {
         
         guard let location = locationTextField.text, location.characters.count > 0 else {
-            // error
+            showAlert("Location Error", message: "You must insert a location before continue.")
             return
         }
         
         guard let link = linkTextField.text, link.characters.count > 0 else {
-            // error
+            showAlert("Location Error", message: "You must insert a media link before continue.")
             return
         }
         
@@ -74,8 +74,8 @@ extension AddLocationViewController {
     
     private func processResponse(withPlacemarks placemarks: [CLPlacemark]?, error: Error?) {
         
-        if let error = error {
-            print("Unable to Forward Geocode Address (\(error))")
+        if error != nil {
+            showAlert("Location Error", message: "Opsss. Unable to Forward Geocode Address")
         } else {
             var location: CLLocation?
             
@@ -87,7 +87,7 @@ extension AddLocationViewController {
                 coordinate = location.coordinate
                 performSegue(withIdentifier: "showPostLocation", sender: nil)
             } else {
-                // "No Matching Location Found"
+                showAlert("Location Error", message: "No Matching Location Found")
             }
         }
     }
