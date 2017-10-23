@@ -28,6 +28,8 @@
 		A792729E1F8CF22500DA4D6D /* UserClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A792729D1F8CF22500DA4D6D /* UserClient.swift */; };
 		A7A1A1D01F8E64160053A34E /* StudentLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A1A1CF1F8E64160053A34E /* StudentLocation.swift */; };
 		A7A1A1D31F8E680B0053A34E /* ParserHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A1A1D21F8E680B0053A34E /* ParserHelper.swift */; };
+		A7FC79A21F97B42000F2C82C /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7FC79A11F97B42000F2C82C /* ListViewController.swift */; };
+		A7FC79A61F97B47500F2C82C /* ListStudentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7FC79A51F97B47500F2C82C /* ListStudentTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +56,8 @@
 		A792729D1F8CF22500DA4D6D /* UserClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserClient.swift; sourceTree = "<group>"; };
 		A7A1A1CF1F8E64160053A34E /* StudentLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLocation.swift; sourceTree = "<group>"; };
 		A7A1A1D21F8E680B0053A34E /* ParserHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserHelper.swift; sourceTree = "<group>"; };
+		A7FC79A11F97B42000F2C82C /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		A7FC79A51F97B47500F2C82C /* ListStudentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListStudentTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +155,7 @@
 		A76B88861F8BCCEA004BFB84 /* OnTheMap */ = {
 			isa = PBXGroup;
 			children = (
+				A7FC79A31F97B44F00F2C82C /* Views */,
 				A73304B31F94DF6B00CE8BC1 /* Extensions */,
 				A783A2211F8E6B9000DA93C1 /* Controllers */,
 				A783A2201F8E6B6E00DA93C1 /* Storyboards */,
@@ -186,6 +191,7 @@
 		A783A2211F8E6B9000DA93C1 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				A7FC79A01F97B40300F2C82C /* List */,
 				A73304B81F94E63600CE8BC1 /* Login */,
 				A76B88891F8BCCEA004BFB84 /* ViewController.swift */,
 			);
@@ -198,6 +204,30 @@
 				A7A1A1D21F8E680B0053A34E /* ParserHelper.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		A7FC79A01F97B40300F2C82C /* List */ = {
+			isa = PBXGroup;
+			children = (
+				A7FC79A11F97B42000F2C82C /* ListViewController.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		A7FC79A31F97B44F00F2C82C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A7FC79A41F97B45B00F2C82C /* Cells */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A7FC79A41F97B45B00F2C82C /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				A7FC79A51F97B47500F2C82C /* ListStudentTableViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -287,8 +317,10 @@
 				A73304B71F94DFC700CE8BC1 /* DesignableButton.swift in Sources */,
 				A78A82711F8CF507005DAB72 /* User.swift in Sources */,
 				A72E89911F8CD64E008B8D87 /* SessionClient.swift in Sources */,
+				A7FC79A21F97B42000F2C82C /* ListViewController.swift in Sources */,
 				A73304BE1F94EC1A00CE8BC1 /* Extensions.swift in Sources */,
 				A76B88881F8BCCEA004BFB84 /* AppDelegate.swift in Sources */,
+				A7FC79A61F97B47500F2C82C /* ListStudentTableViewCell.swift in Sources */,
 				A72E898E1F8CCF14008B8D87 /* APIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

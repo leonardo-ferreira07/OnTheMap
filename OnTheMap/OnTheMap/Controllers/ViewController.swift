@@ -13,9 +13,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        StudentLocationClient.getStudentsLocations { (success) in
-            print(success)
-        }
+//        StudentLocationClient.getStudentsLocations { (success) in
+//            print(success)
+//        }
         
     }
 
