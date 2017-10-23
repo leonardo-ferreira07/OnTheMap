@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="9RK-FR-BUA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9RK-FR-BUA">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -30,10 +31,6 @@
         <scene sceneID="AFE-Ob-P0V">
             <objects>
                 <viewController id="bBX-lm-5Nf" customClass="ListViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="K36-Ib-Tca"/>
-                        <viewControllerLayoutGuide type="bottom" id="agN-dn-aD1"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="H6q-87-RSo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -97,11 +94,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="agN-dn-aD1" firstAttribute="top" secondItem="4aH-n7-dF4" secondAttribute="bottom" id="2eg-FI-ow4"/>
-                            <constraint firstItem="4aH-n7-dF4" firstAttribute="leading" secondItem="H6q-87-RSo" secondAttribute="leading" id="79f-7R-jkH"/>
-                            <constraint firstItem="4aH-n7-dF4" firstAttribute="top" secondItem="K36-Ib-Tca" secondAttribute="bottom" id="hCg-Em-8v5"/>
-                            <constraint firstAttribute="trailing" secondItem="4aH-n7-dF4" secondAttribute="trailing" id="kzH-6H-qvc"/>
+                            <constraint firstItem="E4I-ZI-5Et" firstAttribute="bottom" secondItem="4aH-n7-dF4" secondAttribute="bottom" id="2eg-FI-ow4"/>
+                            <constraint firstItem="4aH-n7-dF4" firstAttribute="leading" secondItem="E4I-ZI-5Et" secondAttribute="leading" id="79f-7R-jkH"/>
+                            <constraint firstItem="4aH-n7-dF4" firstAttribute="top" secondItem="E4I-ZI-5Et" secondAttribute="top" id="hCg-Em-8v5"/>
+                            <constraint firstItem="E4I-ZI-5Et" firstAttribute="trailing" secondItem="4aH-n7-dF4" secondAttribute="trailing" id="kzH-6H-qvc"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="E4I-ZI-5Et"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" id="NX5-OL-R6C"/>
                     <navigationItem key="navigationItem" title="On The Map" id="aZ3-FU-qLr">
@@ -173,14 +171,25 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MapViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="PYU-yO-IA5"/>
-                        <viewControllerLayoutGuide type="bottom" id="VmF-PO-dzS"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="y1U-AH-LU5">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="AG0-sw-vIb"/>
+                                </connections>
+                            </mapView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="y1U-AH-LU5" firstAttribute="trailing" secondItem="3PG-lH-ViG" secondAttribute="trailing" id="Hhb-Xh-ogf"/>
+                            <constraint firstItem="y1U-AH-LU5" firstAttribute="bottom" secondItem="3PG-lH-ViG" secondAttribute="bottom" id="cmy-wh-50k"/>
+                            <constraint firstItem="y1U-AH-LU5" firstAttribute="top" secondItem="3PG-lH-ViG" secondAttribute="top" id="n97-0o-bvO"/>
+                            <constraint firstItem="y1U-AH-LU5" firstAttribute="leading" secondItem="3PG-lH-ViG" secondAttribute="leading" id="nSi-jB-jFF"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="3PG-lH-ViG"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="SKG-Bs-BsH"/>
                     <navigationItem key="navigationItem" title="On The Map" id="KJM-zv-0mi">
@@ -205,6 +214,7 @@
                     <connections>
                         <outlet property="addButton" destination="JI6-ak-8rR" id="itR-Xk-uTT"/>
                         <outlet property="logoutButton" destination="Rwe-bV-z47" id="Osu-7r-rGx"/>
+                        <outlet property="mapView" destination="y1U-AH-LU5" id="WhM-ne-Vmp"/>
                         <outlet property="refreshButton" destination="h66-FM-1Ge" id="n9y-SB-LNP"/>
                     </connections>
                 </viewController>
