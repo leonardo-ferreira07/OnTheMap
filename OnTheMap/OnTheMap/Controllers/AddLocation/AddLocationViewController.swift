@@ -86,7 +86,6 @@ extension AddLocationViewController {
             if let location = location {
                 coordinate = location.coordinate
                 performSegue(withIdentifier: "showPostLocation", sender: nil)
-                print(coordinate)
             } else {
                 // "No Matching Location Found"
             }
