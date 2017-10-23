@@ -37,6 +37,9 @@ class AddLocationMapViewController: UIViewController {
             StudentLocationClient.postStudentLocation(mapString: mapString, mediaURL: mediaURL, coordinate: coordinate) { (success) in
                 if success {
                     print("location posted")
+                    self.dismiss(animated: true, completion: nil)
+                } else {
+                    self.showAlert("Post Location Error", message: "There was an error to post your data to the server, check your connection.")
                 }
             }
         }
