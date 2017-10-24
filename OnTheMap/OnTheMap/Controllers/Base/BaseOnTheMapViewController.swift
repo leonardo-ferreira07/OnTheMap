@@ -19,6 +19,18 @@ class BaseOnTheMapViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        subscribeToKeyboardNotifications()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        unsubscribeFromKeyboardNotifications()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -49,6 +61,14 @@ class BaseOnTheMapViewController: UIViewController {
         
     }
     
+    @objc func keyboardWillShow(_ notification: Notification) {
+        
+    }
+    
+    @objc func keyboardWillHide(_ notification: Notification) {
+        
+    }
+    
 }
 
 // MARK: - UI Controls
@@ -61,4 +81,20 @@ extension BaseOnTheMapViewController {
     func refreshButton(enabled: Bool) {
         refreshButton.isEnabled = enabled
     }
+}
+
+// MARK: - Keyboard notifications
+
+extension BaseOnTheMapViewController {
+    
+    func subscribeToKeyboardNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: .UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: .UIKeyboardWillHide, object: nil)
+    }
+    
+    func unsubscribeFromKeyboardNotifications() {
+        NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillHide, object: nil)
+    }
+    
 }

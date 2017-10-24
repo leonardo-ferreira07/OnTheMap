@@ -8,10 +8,14 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: BaseOnTheMapViewController {
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    
+    @IBOutlet weak var topLogoConstraint: NSLayoutConstraint!
+    @IBOutlet weak var stackView: UIStackView!
+    
     
     let reachability = Reachability()!
 
@@ -19,6 +23,11 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        emailTextField.resignFirstResponder()
+        passwordTextField.resignFirstResponder()
     }
 
     override func didReceiveMemoryWarning() {
@@ -67,6 +76,16 @@ class LoginViewController: UIViewController {
         presentWebPageInSafari(withURLString: Constants.urlSignUp)
     }
     
+    override func keyboardWillShow(_ notification: Notification) {
+        self.topLogoConstraint.constant = -92
+        self.stackView.spacing = 4
+    }
+    
+    override func keyboardWillHide(_ notification: Notification) {
+        self.topLogoConstraint.constant = 92
+        self.stackView.spacing = 10
+    }
+    
 }
 
 // MARK: - TextFields configs
@@ -76,4 +95,5 @@ extension LoginViewController {
         emailTextField.resignFirstResponder()
         passwordTextField.resignFirstResponder()
     }
+    
 }

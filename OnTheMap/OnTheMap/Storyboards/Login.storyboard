@@ -4,7 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -115,6 +115,8 @@
                     <connections>
                         <outlet property="emailTextField" destination="QbG-qF-qFp" id="ZyB-M2-xk5"/>
                         <outlet property="passwordTextField" destination="ASJ-7V-YLt" id="Ll2-qr-0Hr"/>
+                        <outlet property="stackView" destination="coD-Eb-Aom" id="Sm3-Wf-dzL"/>
+                        <outlet property="topLogoConstraint" destination="IsF-dA-IiO" id="eRn-Ye-tGW"/>
                         <segue destination="aKF-An-v6E" kind="show" identifier="goMainStoryboard" id="nNa-Kn-qoy"/>
                     </connections>
                 </viewController>
