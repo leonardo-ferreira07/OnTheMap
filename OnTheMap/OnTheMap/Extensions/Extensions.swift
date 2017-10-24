@@ -16,6 +16,8 @@ extension UIViewController: SFSafariViewControllerDelegate {
             let vc = SFSafariViewController(url: url)
             vc.delegate = self
             self.present(vc, animated: true)
+        } else {
+            self.showAlert("Opening link error", message: "There was an error trying to open the web link.")
         }
     }
     
