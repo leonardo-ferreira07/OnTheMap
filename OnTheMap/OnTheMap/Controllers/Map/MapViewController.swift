@@ -10,6 +10,10 @@ import UIKit
 import MapKit
 
 class MapViewController: BaseOnTheMapViewController {
+    
+    enum PinIdentifier: String {
+        case pin
+    }
 
     @IBOutlet weak var mapView: MKMapView!
     
@@ -66,6 +70,8 @@ extension MapViewController {
             self.refreshButton(enabled: true)
             if success {
                 self.addLocationsToMap()
+            } else {
+                self.showAlert("Get Students Location Error", message: "There was an error to get the last students location.")
             }
         }
     }
@@ -77,12 +83,10 @@ extension MapViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         
-        let reuseId = "pin"
-        
-        var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId) as? MKPinAnnotationView
+        var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: PinIdentifier.pin.rawValue) as? MKPinAnnotationView
         
         if pinView == nil {
-            pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+            pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: PinIdentifier.pin.rawValue)
             pinView!.canShowCallout = true
             pinView!.pinTintColor = .blue
             pinView!.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)

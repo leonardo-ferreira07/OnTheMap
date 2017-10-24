@@ -87,6 +87,8 @@ extension ListViewController {
                 // trick because table view is not working properly
                 self.tableView.scrollToRow(at: IndexPath(row: self.items.count-1, section: 0), at: .top, animated: false)
                 self.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+            } else {
+                self.showAlert("Get Students Location Error", message: "There was an error to get the last students location.")
             }
         }
     }
