@@ -77,7 +77,7 @@ class LoginViewController: BaseOnTheMapViewController {
     }
     
     override func keyboardWillShow(_ notification: Notification) {
-        self.topLogoConstraint.constant = -92
+        self.topLogoConstraint.constant = -82
         self.stackView.spacing = 4
     }
     

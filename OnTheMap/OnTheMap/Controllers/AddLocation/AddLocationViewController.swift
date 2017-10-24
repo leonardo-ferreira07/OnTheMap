@@ -57,7 +57,7 @@ class AddLocationViewController: BaseOnTheMapViewController {
     
     override func keyboardWillShow(_ notification: Notification) {
         self.topIconConstraint.constant = -77
-        self.stackView.spacing = 4
+        self.stackView.spacing = 2
     }
     
     override func keyboardWillHide(_ notification: Notification) {
