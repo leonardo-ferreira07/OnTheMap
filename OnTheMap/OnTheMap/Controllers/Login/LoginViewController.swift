@@ -34,8 +34,8 @@ class LoginViewController: BaseOnTheMapViewController {
             return
         }
         if let email = emailTextField.text, let password = passwordTextField.text, email.isValidEmail(), password.characters.count > 0 {
-            SessionClient.postSession(withEmail: email, password: password, completion: { (success) in
-                if success {
+            SessionClient.postSession(withEmail: email, password: password, completion: { (error) in
+                if error == nil {
                     
                     UserClient.getUserData(withId: MemoryStorage.shared.session?.account.id ?? "", completion: { (success) in
                         if success {
@@ -48,9 +48,12 @@ class LoginViewController: BaseOnTheMapViewController {
                         }
                     })
                     
-                } else {
+                } else if error?.localizedDescription.contains("403") ?? false {
                     self.view.stopLoadingAnimation()
                     self.showAlert("Login Error", message: "Email or password does not match.")
+                } else {
+                    self.view.stopLoadingAnimation()
+                    self.showAlert("Connection Error", message: "We had a connection failure when trying to connect.")
                 }
             })
         } else {

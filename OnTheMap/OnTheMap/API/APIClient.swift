@@ -81,7 +81,7 @@ class APIClient: NSObject {
             }
             
             guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 else {
-                completion(nil, buildError("Your request returned a status code other than 2xx!"))
+                completion(nil, buildError("Your request returned a status code other than 2xx! \((response as? HTTPURLResponse)?.statusCode ?? 0))"))
                 return
             }
             
