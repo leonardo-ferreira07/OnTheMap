@@ -12,6 +12,8 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    
+    let reachability = Reachability()!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +32,11 @@ class LoginViewController: UIViewController {
     @IBAction func loginButtonPressed(_ sender: UIButton) {
         resignTextFields()
         self.view.startLoadingAnimation()
+        
+        guard reachability.connection != .none else {
+            self.showAlert("Connection Error", message: "Seems that you don't have internet connection.")
+            return
+        }
         if let email = emailTextField.text, let password = passwordTextField.text, email.isValidEmail(), password.characters.count > 0 {
             SessionClient.postSession(withEmail: email, password: password, completion: { (success) in
                 if success {
