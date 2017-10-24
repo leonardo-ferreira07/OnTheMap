@@ -12,8 +12,6 @@ class ListViewController: BaseOnTheMapViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    var items: [StudentLocation] = []
-    
     enum ListTableCell: String {
         case listStudentTableViewCell
     }
@@ -46,7 +44,7 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count
+        return MemoryStorage.shared.studentsLocations.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -58,13 +56,13 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if let cell = cell as? ListStudentTableViewCell {
-            cell.confugureCell(with: items[indexPath.row])
+            cell.confugureCell(with: MemoryStorage.shared.studentsLocations[indexPath.row])
         }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        presentWebPageInSafari(withURLString: items[indexPath.row].mediaURL)
+        presentWebPageInSafari(withURLString: MemoryStorage.shared.studentsLocations[indexPath.row].mediaURL)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -81,11 +79,10 @@ extension ListViewController {
         StudentLocationClient.getStudentsLocations { (success) in
             self.refreshButton(enabled: true)
             if success {
-                self.items = MemoryStorage.shared.studentsLocations
                 self.tableView.reloadData()
                 
                 // trick because table view is not working properly
-                self.tableView.scrollToRow(at: IndexPath(row: self.items.count-1, section: 0), at: .top, animated: false)
+                self.tableView.scrollToRow(at: IndexPath(row: MemoryStorage.shared.studentsLocations.count-1, section: 0), at: .top, animated: false)
                 self.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
             } else {
                 self.showAlert("Get Students Location Error", message: "There was an error to get the last students location.")

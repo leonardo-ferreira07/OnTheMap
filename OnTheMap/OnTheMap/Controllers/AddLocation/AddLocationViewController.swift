@@ -29,11 +29,6 @@ class AddLocationViewController: BaseOnTheMapViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         resignTextFields()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let viewController = segue.destination as? AddLocationMapViewController {
@@ -82,17 +77,17 @@ extension AddLocationViewController {
             return
         }
         
+        view.startLoadingAnimation()
         geocoder.geocodeAddressString(location) { (placemarks, error) in
+            self.view.stopLoadingAnimation()
             self.processResponse(withPlacemarks: placemarks, error: error)
         }
         
     }
     
     private func processResponse(withPlacemarks placemarks: [CLPlacemark]?, error: Error?) {
-        self.view.startLoadingAnimation()
         
         if error != nil {
-            self.view.stopLoadingAnimation()
             showAlert("Location Error", message: "Opsss. Unable to Forward Geocode Address")
         } else {
             var location: CLLocation?
@@ -102,11 +97,9 @@ extension AddLocationViewController {
             }
             
             if let location = location {
-                self.view.stopLoadingAnimation()
                 coordinate = location.coordinate
                 performSegue(withIdentifier: "showPostLocation", sender: nil)
             } else {
-                self.view.stopLoadingAnimation()
                 showAlert("Location Error", message: "No Matching Location Found")
             }
         }

@@ -18,31 +18,19 @@ class LoginViewController: BaseOnTheMapViewController {
     
     
     let reachability = Reachability()!
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         resignTextFields()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
     // MARK: - Actions
     
     @IBAction func loginButtonPressed(_ sender: UIButton) {
         resignTextFields()
-        self.view.startLoadingAnimation()
+        view.startLoadingAnimation()
         
         guard reachability.connection != .none else {
-            self.showAlert("Connection Error", message: "Seems that you don't have internet connection.")
+            showAlert("Connection Error", message: "Seems that you don't have internet connection.")
             return
         }
         if let email = emailTextField.text, let password = passwordTextField.text, email.isValidEmail(), password.characters.count > 0 {
