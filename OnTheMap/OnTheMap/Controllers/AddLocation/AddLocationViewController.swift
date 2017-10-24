@@ -9,10 +9,12 @@
 import UIKit
 import CoreLocation
 
-class AddLocationViewController: UIViewController {
+class AddLocationViewController: BaseOnTheMapViewController {
 
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var linkTextField: UITextField!
+    @IBOutlet weak var topIconConstraint: NSLayoutConstraint!
+    @IBOutlet weak var stackView: UIStackView!
     
     var coordinate: CLLocationCoordinate2D?
     
@@ -22,6 +24,11 @@ class AddLocationViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        locationTextField.resignFirstResponder()
+        linkTextField.resignFirstResponder()
     }
 
     override func didReceiveMemoryWarning() {
@@ -48,6 +55,15 @@ class AddLocationViewController: UIViewController {
         getGeocoder()
     }
     
+    override func keyboardWillShow(_ notification: Notification) {
+        self.topIconConstraint.constant = -77
+        self.stackView.spacing = 4
+    }
+    
+    override func keyboardWillHide(_ notification: Notification) {
+        self.topIconConstraint.constant = 30
+        self.stackView.spacing = 10
+    }
 
 }
 

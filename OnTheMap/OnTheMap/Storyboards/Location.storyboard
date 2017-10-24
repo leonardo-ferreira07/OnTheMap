@@ -105,6 +105,8 @@
                     <connections>
                         <outlet property="linkTextField" destination="Lru-b9-GVg" id="cDv-th-WYk"/>
                         <outlet property="locationTextField" destination="IbC-KY-HiW" id="Vgw-SG-hpG"/>
+                        <outlet property="stackView" destination="get-PE-K3x" id="F5S-my-ldO"/>
+                        <outlet property="topIconConstraint" destination="bD2-Ky-KG0" id="way-5h-VIq"/>
                         <segue destination="CuH-fs-F5D" kind="show" identifier="showPostLocation" id="pCz-LK-shE"/>
                     </connections>
                 </viewController>
