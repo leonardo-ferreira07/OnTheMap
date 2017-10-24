@@ -27,8 +27,7 @@ class AddLocationViewController: BaseOnTheMapViewController {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        locationTextField.resignFirstResponder()
-        linkTextField.resignFirstResponder()
+        resignTextFields()
     }
 
     override func didReceiveMemoryWarning() {

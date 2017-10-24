@@ -26,8 +26,7 @@ class LoginViewController: BaseOnTheMapViewController {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        emailTextField.resignFirstResponder()
-        passwordTextField.resignFirstResponder()
+        resignTextFields()
     }
 
     override func didReceiveMemoryWarning() {
