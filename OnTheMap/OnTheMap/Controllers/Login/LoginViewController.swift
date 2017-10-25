@@ -30,6 +30,7 @@ class LoginViewController: BaseOnTheMapViewController {
         view.startLoadingAnimation()
         
         guard reachability.connection != .none else {
+            view.stopLoadingAnimation()
             showAlert("Connection Error", message: "Seems that you don't have internet connection.")
             return
         }
