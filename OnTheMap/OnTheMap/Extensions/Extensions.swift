@@ -16,7 +16,7 @@ extension UIViewController: SFSafariViewControllerDelegate {
 //            let vc = SFSafariViewController(url: url)
 //            vc.delegate = self
 //            self.present(vc, animated: true)
-            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            UIApplication.shared.open(url, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
         } else {
             showAlert("Opening link error", message: "There was an error trying to open the web link.")
         }
@@ -53,4 +53,9 @@ extension UIView {
             }
         }
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToUIApplicationOpenExternalURLOptionsKeyDictionary(_ input: [String: Any]) -> [UIApplication.OpenExternalURLOptionsKey: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIApplication.OpenExternalURLOptionsKey(rawValue: key), value)})
 }

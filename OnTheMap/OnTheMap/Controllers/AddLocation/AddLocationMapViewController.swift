@@ -59,9 +59,9 @@ extension AddLocationMapViewController {
             let longitude = coordinate.longitude
             let latDelta: CLLocationDegrees = 0.005
             let lonDelta: CLLocationDegrees = 0.005
-            let span: MKCoordinateSpan = MKCoordinateSpanMake(latDelta, lonDelta)
+            let span: MKCoordinateSpan = MKCoordinateSpan.init(latitudeDelta: latDelta, longitudeDelta: lonDelta)
             let location: CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude, longitude)
-            let region: MKCoordinateRegion = MKCoordinateRegionMake(location, span)
+            let region: MKCoordinateRegion = MKCoordinateRegion.init(center: location, span: span)
             self.mapView.setRegion(region, animated: true)
             let point = MKPointAnnotation()
             point.coordinate = coordinate
